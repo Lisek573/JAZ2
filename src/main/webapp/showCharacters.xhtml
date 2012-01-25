@@ -9,31 +9,27 @@
 	
     <h:form>
     
-     <h:dataTable value="#{productBean.allProducts}" var="item">
+     <h:dataTable value="#{characterBean.allCharacters}" var="item">
       
       <h:column>
-        <f:facet name="header">#{msg.productNameLabel}</f:facet>
+        <f:facet name="header">#{msg.characterNameLabel}</f:facet>
         #{item.name}
       </h:column>
       
       <h:column>
-        <f:facet name="header">#{msg.productAlcTypeLabel}</f:facet>
-        #{item.alcType}
+        <f:facet name="header">#{msg.characterJobClassLabel}</f:facet>
+        #{item.jobClass}
       </h:column>
+
       
       <h:column>
-        <f:facet name="header">#{msg.productReleaseYearLabel}</f:facet>
-        #{item.releaseYear}
-      </h:column>
-      
-      <h:column>
-        <f:facet name="header">#{msg.productPriceLabel}</f:facet>
-        #{item.price}
+        <f:facet name="header">#{msg.characterLevelLabel}</f:facet>
+        #{item.level}
       </h:column>
       
       <h:column>
         <f:facet name="header">#{msg.action}</f:facet>
-        <h:commandLink value="#{msg.actionDelete}" action="#{productBean.deleteProduct}"/>
+        <h:commandLink value="#{msg.actionDelete}" action="#{characterBean.deleteCharacter}"/>
       </h:column>
 
       

@@ -9,24 +9,24 @@
 	
     <h:form>
     
-     <h:dataTable value="#{personBean.allPersons}" var="item">
+     <h:dataTable value="#{accountBean.allAccounts}" var="item">
 
       
       <h:column>
-        <f:facet name="header">#{msg.personNameLabel}</f:facet>
+        <f:facet name="header">#{msg.accountNameLabel}</f:facet>
         #{item.name}
       </h:column>
       
       <h:column>
-        <f:facet name="header">#{msg.personDobLabel}</f:facet>
-        <h:outputText value="#{item.dateOfBirth}">
+        <f:facet name="header">#{msg.accountDocLabel}</f:facet>
+        <h:outputText value="#{item.dateOfCreate}">
   			  <f:convertDateTime dateStyle="full"  type="date" />
 		</h:outputText>
       </h:column>
 
       <h:column>
         <f:facet name="header">#{msg.action}</f:facet>
-        <h:commandLink value="#{msg.actionDelete}" action="#{personBean.deletePerson}"/>
+        <h:commandLink value="#{msg.actionDelete}" action="#{accountBean.deleteAccount}"/>
       </h:column>
 
       

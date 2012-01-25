@@ -1,4 +1,4 @@
-package sklep.web;
+package mmorpg.web;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
@@ -7,8 +7,8 @@ import javax.faces.validator.FacesValidator;
 import javax.faces.validator.Validator;
 import javax.faces.validator.ValidatorException;
 
-@FacesValidator("productNameValidator")
-public class ProductNameValidator implements Validator {
+@FacesValidator("characterNameValidator")
+public class CharacterNameValidator implements Validator {
 
 	@Override
 	public void validate(FacesContext context, UIComponent component, Object value)

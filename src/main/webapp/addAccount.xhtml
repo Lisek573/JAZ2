@@ -7,20 +7,20 @@
     xmlns:rich="http://richfaces.org/rich"
     xmlns:a4j="http://richfaces.org/a4j">
 	<ui:define name="content">
-		<h:form id="personform">
+		<h:form id="accountform">
 			<h:panelGrid columns="2">
 
-			<h:outputText value="#{msg.personNameLabel}" />
-				<h:inputText id="name" value="#{personBean.person.name}" /> 
+			<h:outputText value="#{msg.accountNameLabel}" />
+				<h:inputText id="name" value="#{accountBean.account.name}" /> 
 					
-			<h:outputText value="#{msg.personDobLabel}" />
-			<rich:calendar value="#{personBean.person.dateOfBirth}" type="date"
+			<h:outputText value="#{msg.accountDocLabel}" />
+			<rich:calendar value="#{accountBean.account.dateOfCreate}" type="date"
 					id="calendar" datePattern="dd.MM.yyyy" showApplyButton="#{true}"
 					cellWidth="24px" cellHeight="22px" style="width:200px">
 <!-- 				<a4j:ajax render="messages" execute="@this" /> -->
 			</rich:calendar>
 <!--			
-			<h:inputText id="dateOfBirth" value="#{personBean.person.dateOfBirth}">
+			<h:inputText id="dateOfCreate" value="#{accountBean.account.dateOfCreate}">
 				<f:convertDateTime type="date" pattern="dd.MM.yyyy" />
 			</h:inputText>
 -->
@@ -28,8 +28,8 @@
 			</h:panelGrid>
 			
 			
-			<h:commandButton value="#{msg.personFormOKButton}"
-				action="#{personBean.addPerson}" />
+			<h:commandButton value="#{msg.accountFormOKButton}"
+				action="#{accountBean.addAccount}" />
 
 				
 			<h:panelGrid>

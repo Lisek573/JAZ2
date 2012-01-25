@@ -1,6 +1,7 @@
-package sklep.web;
+package mmorpg.web;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -16,48 +17,50 @@ import javax.faces.validator.ValidatorException;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import sklep.project.*;
-import sklep.services.*;
+import mmorpg.project.*;
+import mmorpg.project.Character;
+import mmorpg.services.*;
 
 
 @SessionScoped
-@Named("personBean")
-public class PersonFormBean implements Serializable {
+@Named("characterBean")
+public class CharacterFormBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	Person person = new Person(null, null);
+	private Character character = new Character(null, JobClass.Priest , 0);
 
-	ListDataModel<Person> persons = new ListDataModel<Person>();
+	private ListDataModel<Character> characters = new ListDataModel<Character>();
 
 	@Inject
-	PersonDBManager personDBManager = new PersonDBManager();
+	private CharacterDBManager characterDBManager;
 
-	public Person getPerson() {
-		return person;
+	public Character getCharacter() {
+		return character;
 	}
 
-	public void setPerson(Person person) {
-		this.person = person;
+	public void setCharacter(Character character) {
+		this.character = character;
 	}
 	
-	public String addPerson() {
-		personDBManager.addPerson(person);
-		return "showPersons";
+	public String addCharacter() {
+		character.setJobClass(JobClass.valueOf(character.getJobClassString()));
+		characterDBManager.addCharacter(character);
+		return "showCharacters";
 	}
 		
-	public ListDataModel<Person> getAllPersons() {
-		persons.setWrappedData(personDBManager.getAllPersons());
-		return persons;
+	public ListDataModel<Character> getAllCharacters() {
+		characters.setWrappedData(characterDBManager.getAllCharacters());
+		return characters;
 	}
 
 
-	public void deletePerson() {
-		Person personToDelete = persons.getRowData();
-		personDBManager.deletePerson(personDBManager.findPersonByName(personToDelete.getName()));
+	public void deleteCharacter() {
+		Character characterToDelete = characters.getRowData();
+		characterDBManager.deleteCharacter(characterDBManager.findCharacterByName(characterToDelete.getName()));
 	}
 
-/*
+	/*
 	// Validators
 
 	// Business logic validation
@@ -66,10 +69,10 @@ public class PersonFormBean implements Serializable {
 
 		String pin = (String) value;
 
-		for (Person person : pm.getAllPersons()) {
-			if (person.getPin().equalsIgnoreCase(pin)) {
+		for (Account account : pm.getAllAccounts()) {
+			if (account.getPin().equalsIgnoreCase(pin)) {
 				FacesMessage message = new FacesMessage(
-						"Person with this PIN already exists in database");
+						"Account with this PIN already exists in database");
 				message.setSeverity(FacesMessage.SEVERITY_ERROR);
 				throw new ValidatorException(message);
 			}
@@ -103,5 +106,7 @@ public class PersonFormBean implements Serializable {
 		}
 	}
 */
+
+
 
 }

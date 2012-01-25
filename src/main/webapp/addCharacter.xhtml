@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+	<ui:define name="content">
+
+		<h:form id="characterForm">
+            
+			<h:panelGrid columns="2">
+
+				<h:outputText value="#{msg.characterNameLabel}" />
+				<h:inputText id="name" value="#{characterBean.character.name}" required="#{true}">
+ 					<f:validator validatorId="characterNameValidator" /> 
+				</h:inputText>
+
+				<h:outputText value="#{msg.characterJobClassLabel}" />
+				<h:selectOneMenu id="JobClassString" value="#{characterBean.character.jobClassString}">
+				  <f:selectItem id="Knight" itemLabel="Knight" itemValue="Knight" />
+				  <f:selectItem id="Priest" itemLabel="Priest" itemValue="Priest" />
+				  <f:selectItem id="Hunter" itemLabel="Hunter" itemValue="Hunter" />
+				  <f:selectItem id="Merchant" itemLabel="Merchant" itemValue="Merchant" />
+				  <f:selectItem id="Sniper" itemLabel="Sniper" itemValue="Sniper" />
+				</h:selectOneMenu>
+
+
+				<h:outputText value="#{msg.characterLevelLabel}" />
+				<h:inputText id="level" value="#{characterBean.character.level}" required="#{true}" />
+				
+
+
+			</h:panelGrid>
+			
+			<h:commandButton value="#{msg.characterFormOKButton}"
+				action="#{characterBean.addCharacter}" />
+
+
+			<h:panelGrid>
+				<h:messages id="messages" showDetail="#{true}"
+					showSummary="#{false}" />
+			</h:panelGrid>
+		</h:form>
+
+	</ui:define>
+</ui:composition>

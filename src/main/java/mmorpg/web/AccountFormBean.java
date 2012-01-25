@@ -1,7 +1,6 @@
-package sklep.web;
+package mmorpg.web;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -17,49 +16,48 @@ import javax.faces.validator.ValidatorException;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import sklep.project.*;
-import sklep.services.*;
+import mmorpg.project.*;
+import mmorpg.services.*;
 
 
 @SessionScoped
-@Named("productBean")
-public class ProductFormBean implements Serializable {
+@Named("accountBean")
+public class AccountFormBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private Product product = new Product(null, AlcType.Brandy , 0, 0);
+	Account account = new Account(null, null);
 
-	private ListDataModel<Product> products = new ListDataModel<Product>();
+	ListDataModel<Account> accounts = new ListDataModel<Account>();
 
 	@Inject
-	private ProductDBManager productDBManager;
+	AccountDBManager accountDBManager = new AccountDBManager();
 
-	public Product getProduct() {
-		return product;
+	public Account getAccount() {
+		return account;
 	}
 
-	public void setProduct(Product product) {
-		this.product = product;
+	public void setAccount(Account account) {
+		this.account = account;
 	}
 	
-	public String addProduct() {
-		product.setAlcType(AlcType.valueOf(product.getAlcTypeString()));
-		productDBManager.addProduct(product);
-		return "showProducts";
+	public String addAccount() {
+		accountDBManager.addAccount(account);
+		return "showAccounts";
 	}
 		
-	public ListDataModel<Product> getAllProducts() {
-		products.setWrappedData(productDBManager.getAllProducts());
-		return products;
+	public ListDataModel<Account> getAllAccounts() {
+		accounts.setWrappedData(accountDBManager.getAllAccounts());
+		return accounts;
 	}
 
 
-	public void deleteProduct() {
-		Product productToDelete = products.getRowData();
-		productDBManager.deleteProduct(productDBManager.findProductByName(productToDelete.getName()));
+	public void deleteAccount() {
+		Account accountToDelete = accounts.getRowData();
+		accountDBManager.deleteAccount(accountDBManager.findAccountByName(accountToDelete.getName()));
 	}
 
-	/*
+/*
 	// Validators
 
 	// Business logic validation
@@ -68,10 +66,10 @@ public class ProductFormBean implements Serializable {
 
 		String pin = (String) value;
 
-		for (Person person : pm.getAllPersons()) {
-			if (person.getPin().equalsIgnoreCase(pin)) {
+		for (Account account : pm.getAllAccounts()) {
+			if (account.getPin().equalsIgnoreCase(pin)) {
 				FacesMessage message = new FacesMessage(
-						"Person with this PIN already exists in database");
+						"Account with this PIN already exists in database");
 				message.setSeverity(FacesMessage.SEVERITY_ERROR);
 				throw new ValidatorException(message);
 			}
@@ -105,7 +103,5 @@ public class ProductFormBean implements Serializable {
 		}
 	}
 */
-
-
 
 }
