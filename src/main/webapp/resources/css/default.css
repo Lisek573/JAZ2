@@ -1,5 +1,13 @@
 body {
-font-family:arial,helvetica,sans-serif;font-size:10pt;background:#EEF2FF url(/image/fade-blue.png) top center repeat-x;color:#000;padding-left:5px;padding-right:5px;margin-right:0;margin-left:0;margin-top:5px;
+	font-family:arial,helvetica,sans-serif;
+	font-size:10pt;
+	background:#EEF2FF url(/image/fade-blue.png) top center repeat-x;
+	color:#000;
+	padding-left:5px;
+	padding-right:5px;
+	margin-right:0;
+	margin-left:0;
+	margin-top:5px;
 }
 
 .heading {
@@ -8,7 +16,6 @@ font-family:arial,helvetica,sans-serif;font-size:10pt;background:#EEF2FF url(/im
   font-style: bold;
   font-style: italic;
   font-style: undeline;
-  font-family: Comic Sans;
   text-align: center;
   height: 150px;
 }
@@ -34,7 +41,7 @@ font-family:arial,helvetica,sans-serif;font-size:10pt;background:#EEF2FF url(/im
 	left bottom,
 	left top,
 	color-stop(0.14, rgb(239,212,247)),
-	color-stop(0.58, rgb(214,252,252))
+	color-stop(0.58, rgb(242,252,252))
 );
  
   top: 160px;
@@ -52,7 +59,7 @@ border-radius: 15px;
 	left bottom,
 	left top,
 	color-stop(0.14, rgb(239,212,247)),
-	color-stop(0.58, rgb(214,252,252))
+	color-stop(0.58, rgb(242,252,252))
 );	
   position:absolute;
   right: 325px; 
