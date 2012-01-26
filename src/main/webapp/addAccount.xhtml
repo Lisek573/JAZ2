@@ -7,11 +7,12 @@
     xmlns:rich="http://richfaces.org/rich"
     xmlns:a4j="http://richfaces.org/a4j">
 	<ui:define name="content">
-		<h:form id="accountform">
+		<h:form id="accountform"  styleClass="formy">
 			<h:panelGrid columns="2">
 
 			<h:outputText value="#{msg.accountNameLabel}" />
-				<h:inputText id="name" value="#{accountBean.account.name}" /> 
+				<h:inputText id="name" value="#{accountBean.account.name}"
+				 /> 
 					
 			<h:outputText value="#{msg.accountDocLabel}" />
 			<rich:calendar value="#{accountBean.account.dateOfCreate}" type="date"

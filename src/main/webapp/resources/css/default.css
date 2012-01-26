@@ -4,7 +4,6 @@ font-family:arial,helvetica,sans-serif;font-size:10pt;background:#EEF2FF url(/im
 
 .heading {
   padding: 15px;
-  border: 1px solid red;
   font-size: 25px;
   font-style: bold;
   font-style: italic;
@@ -24,23 +23,53 @@ font-family:arial,helvetica,sans-serif;font-size:10pt;background:#EEF2FF url(/im
   padding-left: 0px;
   padding-bottom: 20px;
   border: thin solid red;
+  border-radius: 15px;
   position: absolute;
-  left: 160px;
-  height: 80%;
-  width: 150px;
-  background: #FFFFFF;
+  right: 130px;
+  height: 150px;
+  width: 170px;
+ // background: #ccffff;
+ background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.14, rgb(239,212,247)),
+	color-stop(0.58, rgb(214,252,252))
+);
+ 
   top: 160px;
 }
 
 .content {
+border-radius: 15px;
   padding-right: 20px;
   padding-left: 20px;
   padding-bottom: 20px;
   border: thin solid red;
-  background: #FFFFFF;	
+ // background: #F0FFFF;
+  background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.14, rgb(239,212,247)),
+	color-stop(0.58, rgb(214,252,252))
+);	
   position:absolute;
-  left: 325px; 
-  right: 150px;
+  right: 325px; 
+  left: 150px;
   top: 160px;
-  height: 80%;
+  height: 50%;
+}
+
+.tabelka {
+	   padding-top: 50px;
+	   padding-left: 50px;
+	   align=center;
+	}
+	
+	.formy {
+	   padding-top: 150px;
+	   padding-left: 40%;
+	   align=center;
+	}
 }

@@ -7,7 +7,7 @@
 	
 	<ui:define name="content">
 	
-    <h:form>
+    <h:form styleClass="tabelka">
     
      <h:dataTable value="#{accountBean.allAccounts}" var="item">
 
@@ -17,12 +17,20 @@
         #{item.name}
       </h:column>
       
+                  <h:column>
+           <img src="http://upload.wikimedia.org/wikipedia/commons/c/c0/Blank.gif" width="100px" height="1px"></img>
+            </h:column>
+      
       <h:column>
         <f:facet name="header">#{msg.accountDocLabel}</f:facet>
         <h:outputText value="#{item.dateOfCreate}">
-  			  <f:convertDateTime dateStyle="full"  type="date" />
+  			  <f:convertDateTime dateStyle="short"  type="date" />
 		</h:outputText>
       </h:column>
+      
+                  <h:column>
+           <img src="http://upload.wikimedia.org/wikipedia/commons/c/c0/Blank.gif" width="100px" height="1px"></img>
+            </h:column>
 
       <h:column>
         <f:facet name="header">#{msg.action}</f:facet>
